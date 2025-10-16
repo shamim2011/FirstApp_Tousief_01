@@ -9,7 +9,7 @@ import com.mycomp.firstApp.dto.MyReq;
 import com.mycomp.firstApp.service.MyService;
 
 @Component
-public class MyServiceImpl implements MyService {
+public class MyServiceImpl implements MyService { 
 
 	private static final Logger logger = LoggerFactory.getLogger(MyServiceImpl.class);
 	
