@@ -35,7 +35,7 @@ public class AddController {
         
         String result = myservice.add(a,b);
         
-        logger.info("Result: {}",result); 
+        logger.info("Result: {}",result);   
         
         return result;
     }

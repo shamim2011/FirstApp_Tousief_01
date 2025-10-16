@@ -20,6 +20,4 @@ public class MyReq {
 	public String toString() {
 		return "MyReq [num1=" + num1 + ", num2=" + num2 + "]";
 	}
-	
-	
 }
