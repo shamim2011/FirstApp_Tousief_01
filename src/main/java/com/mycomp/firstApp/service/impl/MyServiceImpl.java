@@ -42,5 +42,4 @@ public class MyServiceImpl implements MyService {
 		
 		return "From service : \n " + jsonString;
 	}
-	
 }
