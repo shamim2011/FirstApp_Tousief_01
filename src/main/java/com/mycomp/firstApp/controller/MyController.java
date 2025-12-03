@@ -27,7 +27,6 @@ public class MyController {
 		return "/index.html";
 	}
 	@PostMapping("/postm/{path1}/{path2}/process")
-	@ResponseStatus(HttpStatus.CREATED)        // Status will be 201
 	public ResponseEntity<String> postMethod(@RequestParam("val1") int val1,
 			@RequestParam("val1") int val2,
 			@PathVariable String path1,
@@ -39,31 +38,20 @@ public class MyController {
 		
 		convertStringToObject(reqBody);
 		
-		String responseBody = "Hello Spring postMethod()!"+" \nval1="+val1+
+		String responseString = "Hello Spring postMethod()!"+" \nval1="+val1+
 		" \nval2="+val2+"\nPath1="+path1+"\nPath2="+path2
 		+"\nmyHeader="+myHeader+
 		"\n|numReq = "+reqBody;
 		
-		// TODO
-		return null; //responseBody;
+		if(val1 == 1) {
+			return new ResponseEntity<>(
+					responseString,HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(
+				responseString,HttpStatus.ACCEPTED); 
 	}
 	private void convertStringToObject(NumReq reqBody) {
 		logger.info("NumRequest:{}",reqBody);
 	}
-	
-	
-//	public String postMethod(@RequestParam("val1") int val1,
-//							@RequestParam("val1") int val2,
-//							@PathVariable String path1,
-//							@PathVariable String path2,
-//							@RequestHeader String myHeader,
-//							@RequestBody NumReq reqBody) {
-//		
-//		logger.info("NumRequest:{}",reqBody);
-//		
-//		return "Hello Spring postMethod()!"+" \nval1="+val1+
-//				" \nval2="+val2+"\nPath1="+path1+"\nPath2="+path2
-//				+"\nmyHeader="+myHeader+
-//				"\n|numReq = "+reqBody;
-//	}
 }
